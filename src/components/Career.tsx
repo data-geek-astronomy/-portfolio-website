@@ -1,36 +1,47 @@
 import "./styles/Career.css";
 import { config } from "../config";
 
-const getDisplayYear = (period: string) => {
-  if (period.includes("Present")) return "NOW";
-  if (period.includes(" - ")) {
-    return period.split(" - ")[0]; // Show start year for ranges
-  }
-  return period; // Single year like "2021"
-};
-
 const Career = () => {
   return (
-    <div className="career-section section-container">
+    <div className="career-section" id="experience">
       <div className="career-container">
-        <h2>
-          My career <span>&</span>
-          <br /> experience
-        </h2>
-        <div className="career-info">
-          <div className="career-timeline">
-            <div className="career-dot"></div>
-          </div>
-          {config.experiences.map((exp, index) => (
-            <div key={index} className="career-info-box">
-              <div className="career-info-in">
-                <div className="career-role">
-                  <h4>{exp.position}</h4>
-                  <h5>{exp.company}</h5>
-                </div>
-                <h3>{getDisplayYear(exp.period)}</h3>
+        <span className="section-tag">// experience</span>
+        <h2 className="career-heading">Where I've worked</h2>
+
+        <div className="career-timeline">
+          {config.experiences.map((exp, i) => (
+            <div key={i} className="career-item">
+              <div className="career-item-line">
+                <div className="career-item-dot" />
               </div>
-              <p>{exp.description}</p>
+
+              <div className="career-item-content">
+                <div className="career-item-header">
+                  <div className="career-item-meta">
+                    <h3 className="career-item-role">{exp.position}</h3>
+                    <div className="career-item-company">
+                      <span className="career-item-co-name">{exp.company}</span>
+                      <span className="career-item-sep">·</span>
+                      <span className="career-item-location">{exp.location}</span>
+                    </div>
+                  </div>
+                  <span className="career-item-period">{exp.period}</span>
+                </div>
+
+                <p className="career-item-desc">{exp.description}</p>
+
+                <ul className="career-item-list">
+                  {exp.responsibilities.map((r, j) => (
+                    <li key={j} className="career-item-bullet">{r}</li>
+                  ))}
+                </ul>
+
+                <div className="career-item-tags">
+                  {exp.technologies.map(t => (
+                    <span key={t} className="career-item-tag">{t}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>

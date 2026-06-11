@@ -1,101 +1,118 @@
 .about-section {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  place-items: center;
-  position: relative;
-  opacity: 1;
-  height: auto;
-  width: var(--cWidth);
-  margin: auto;
-}
-.about-me {
-  padding: 40px 0px;
-  padding-bottom: 0;
   width: 100%;
-  max-width: calc(100% - 15px);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
 }
-.about-me h3 {
-  font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 400;
-  color: var(--accentColor);
-  margin-bottom: 15px;
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--surfaceBorder), transparent);
+  pointer-events: none;
 }
-
-.about-me p {
-  font-size: 20px;
+.about-container {
+  width: var(--cWidth);
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-heading {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+.about-heading-accent {
+  background: linear-gradient(90deg, var(--accentColor), #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(232,228,240,0.7);
+  margin: 0 0 40px;
+  font-weight: 300;
+}
+.about-edu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--surfaceBorder);
+}
+.about-edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.about-edu-degree {
+  font-size: 14px;
   font-weight: 600;
-  line-height: 26px;
+  color: #e8e4f0;
+}
+.about-edu-school {
+  font-size: 12px;
+  font-family: var(--fontMono);
+  color: var(--accentColor);
+  opacity: 0.7;
   letter-spacing: 0.5px;
-  word-spacing: 2px;
 }
 
-.about-me .split-word {
-  display: inline-block;
-  margin-right: 0.3em;
+/* Right: highlight cards */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 54px;
+}
+.about-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(13,17,23,0.6);
+  border: 1px solid var(--surfaceBorder);
+  border-radius: 12px;
+  padding: 20px 24px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.about-card:hover {
+  border-color: rgba(0,212,255,0.3);
+  transform: translateX(6px);
+}
+.about-card-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+.about-card-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e8e4f0;
+  margin-bottom: 4px;
+}
+.about-card-desc {
+  font-size: 12px;
+  font-family: var(--fontMono);
+  color: var(--textMuted);
+  letter-spacing: 0.3px;
 }
 
-.about-me .split-line {
-  display: block;
-}
-
-@media only screen and (min-width: 600px) {
-  .about-section {
-    justify-content: center;
+@media screen and (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
-  .about-me {
-    width: 500px;
-  }
-  .about-me h3 {
-    font-size: 22px;
-    letter-spacing: 6px;
-  }
-  .about-me p {
-    font-size: 28px;
-    line-height: 32px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .about-me {
-    width: 500px;
-    max-width: calc(100% - 70px);
-    transform: translateY(0%);
-  }
-  .about-me h3 {
-    font-size: 25px;
-    letter-spacing: 7px;
-  }
-  .about-me p {
-    font-size: 33px;
-    line-height: 36px;
-  }
-  .about-section {
-    opacity: 1;
-  }
-}
-@media only screen and (min-width: 1025px) {
-  .about-section {
-    width: var(--cWidth);
-    justify-content: right;
-    max-width: 1920px;
-    height: var(--vh);
-    padding: 0px;
-    opacity: 1;
-  }
-  .about-me {
-    padding: 0px;
-    width: 50%;
-  }
-  .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
-  }
-}
-@media only screen and (min-width: 1950px) {
-  .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
-  }
+  .about-right { padding-top: 0; }
 }

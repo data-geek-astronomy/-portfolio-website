@@ -1,138 +1,57 @@
-import { useEffect, useRef } from "react";
 import "./styles/WhatIDo.css";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { config } from "../config";
 
 const WhatIDo = () => {
-  const containerRef = useRef<(HTMLDivElement | null)[]>([]);
-  const setRef = (el: HTMLDivElement | null, index: number) => {
-    containerRef.current[index] = el;
-  };
-  useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
-        }
-      });
-    }
-    return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
-      });
-    };
-  }, []);
   return (
-    <div className="whatIDO">
-      <div className="what-box">
-        <h2 className="title">
-          W<span className="hat-h2">HAT</span>
-          <div>
-            &nbsp;I<span className="do-h2"> DO</span>
-          </div>
-        </h2>
-      </div>
-      <div className="what-box">
-        <div className="what-box-in">
-          <div className="what-border2">
-            <svg width="100%">
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-              <line
-                x1="100%"
-                y1="0"
-                x2="100%"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-            </svg>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
+    <div className="whatido-section" id="skills">
+      {/* Divider line */}
+      <div className="whatido-divider" />
 
-            <div className="what-content-in">
-              <h3>{config.skills.develop.title}</h3>
-              <h4>{config.skills.develop.description}</h4>
-              <p>
-                {config.skills.develop.details}
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                {config.skills.develop.tools.map((tool, index) => (
-                  <div key={index} className="what-tags">{tool}</div>
-                ))}
-              </div>
-              <div className="what-arrow"></div>
+      <div className="whatido-container">
+        <span className="section-tag">// expertise</span>
+        <h2 className="whatido-heading">What I build</h2>
+
+        <div className="whatido-grid">
+          {/* Card 1: LLM & Agentic AI */}
+          <div className="whatido-card whatido-card-primary">
+            <div className="whatido-card-glow" />
+            <div className="whatido-card-header">
+              <div className="whatido-card-number">01</div>
+              <h3 className="whatido-card-title">{config.skills.develop.title}</h3>
+            </div>
+            <p className="whatido-card-desc">{config.skills.develop.details}</p>
+            <div className="whatido-tools">
+              {config.skills.develop.tools.map(t => (
+                <span key={t} className="whatido-tool">{t}</span>
+              ))}
             </div>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
+
+          {/* Card 2: ML & Data Engineering */}
+          <div className="whatido-card whatido-card-secondary">
+            <div className="whatido-card-header">
+              <div className="whatido-card-number">02</div>
+              <h3 className="whatido-card-title">{config.skills.design.title}</h3>
             </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>{config.skills.design.title}</h3>
-              <h4>{config.skills.design.description}</h4>
-              <p>
-                {config.skills.design.details}
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                {config.skills.design.tools.map((tool, index) => (
-                  <div key={index} className="what-tags">{tool}</div>
-                ))}
-              </div>
-              <div className="what-arrow"></div>
+            <p className="whatido-card-desc">{config.skills.design.details}</p>
+            <div className="whatido-tools">
+              {config.skills.design.tools.map(t => (
+                <span key={t} className="whatido-tool whatido-tool-alt">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Card 3: Cloud & Infrastructure */}
+          <div className="whatido-card whatido-card-tertiary">
+            <div className="whatido-card-header">
+              <div className="whatido-card-number">03</div>
+              <h3 className="whatido-card-title">CLOUD & INFRA</h3>
+            </div>
+            <p className="whatido-card-desc">AWS SageMaker, EC2, Lambda, S3, Redshift · GCP Vertex AI · Docker, Kubernetes · CI/CD on Jenkins & GitLab · MLflow experiment tracking.</p>
+            <div className="whatido-tools">
+              {["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "MLflow", "Airflow", "FastAPI", "Kafka"].map(t => (
+                <span key={t} className="whatido-tool whatido-tool-cloud">{t}</span>
+              ))}
             </div>
           </div>
         </div>
@@ -142,18 +61,3 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
-
-function handleClick(container: HTMLDivElement) {
-  container.classList.toggle("what-content-active");
-  container.classList.remove("what-sibling");
-  if (container.parentElement) {
-    const siblings = Array.from(container.parentElement.children);
-
-    siblings.forEach((sibling) => {
-      if (sibling !== container) {
-        sibling.classList.remove("what-content-active");
-        sibling.classList.toggle("what-sibling");
-      }
-    });
-  }
-}
