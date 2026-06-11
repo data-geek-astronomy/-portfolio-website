@@ -1,5 +1,6 @@
 import { PropsWithChildren, useEffect, useRef } from "react";
 import "./styles/Landing.css";
+import { lenis } from "./Navbar";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -22,8 +23,13 @@ const Landing = ({ children }: PropsWithChildren) => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    const el = document.querySelector(id) as HTMLElement | null;
+    if (!el) return;
+    if (lenis) {
+      lenis.scrollTo(el, { offset: 0, duration: 1.6 });
+    } else {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const stats = [

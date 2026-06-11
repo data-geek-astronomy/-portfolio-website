@@ -130,7 +130,11 @@
   gap: 10px;
   font-size: 13px;
   color: rgba(232,228,240,0.6);
+  padding-top: 10px;
+}
+.contact-card-status:first-of-type {
   padding-top: 20px;
+  margin-top: 10px;
   border-top: 1px solid var(--surfaceBorder);
 }
 .contact-status-dot {

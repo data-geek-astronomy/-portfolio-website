@@ -60,6 +60,14 @@ const Contact = () => {
               <span className="contact-status-dot" />
               <span>Open to full-time AI Engineering roles</span>
             </div>
+            <div className="contact-card-status">
+              <span className="contact-status-dot" />
+              <span>Open to Data Engineering roles</span>
+            </div>
+            <div className="contact-card-status">
+              <span className="contact-status-dot" />
+              <span>Open to ML and Data Science roles</span>
+            </div>
           </div>
         </div>
       </div>
