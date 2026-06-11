@@ -66,7 +66,7 @@
 /* ── Left: Identity ── */
 .landing-identity {
   position: relative;
-  z-index: 9;
+  z-index: 15;
   flex: 1 1 auto;
   max-width: 600px;
 }
@@ -385,6 +385,10 @@
     bottom: 0;
     z-index: 11;
     position: fixed;
+    /* Canvas spans full width but must not block clicks on buttons/links.
+       Head-tracking uses a document-level mousemove listener, so disabling
+       pointer events here is safe. */
+    pointer-events: none;
   }
   .character-model::after,
   .character-model::before { display: none; }
@@ -395,12 +399,14 @@
     right: 66%;
     transform: translateY(-50%);
     max-width: 420px;
+    z-index: 15;
   }
   .landing-stats {
     position: absolute;
     top: 50%;
     left: 66%;
     transform: translateY(-50%);
+    z-index: 15;
   }
 }
 
