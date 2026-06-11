@@ -27,10 +27,14 @@ const Landing = ({ children }: PropsWithChildren) => {
     const el = document.querySelector(id) as HTMLElement | null;
     if (!el) return;
     if (lenisInstance) {
-      // Lenis accepts a selector string, element, or offset number
+      // force:true ensures the scroll fires every time, even if a previous
+      // programmatic scroll left internal state mid-flight. lock:false keeps
+      // user able to interrupt.
       lenisInstance.scrollTo(el, {
         offset: 0,
         duration: 1.8,
+        force: true,
+        lock: false,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
     } else {
