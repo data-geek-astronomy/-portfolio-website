@@ -6,8 +6,10 @@ export const config = {
         description: "AI Engineer building end-to-end intelligent systems — LLM orchestration, agentic pipelines, RAG, and production deployment. 3+ years of shipped systems with measurable impact."
     },
     social: {
-        github: "aravindkumar-nalukurthi",
-        email: "aravind@example.com",
+        github: "https://github.com/data-geek-astronomy",
+        email: "aravind.kumar.nalukurthi@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aravind-kumar-nalukurthi-45b2a41b2/",
+        phone: "480-931-1899",
         location: "San Francisco, CA"
     },
     about: {
@@ -77,33 +79,103 @@ export const config = {
             title: "Agentic Claims Decisioning",
             category: "LLM / Agentic AI",
             technologies: "Claude API, GPT-4, LangChain, LangGraph, MCP Servers, RAG, Vector DB, FastAPI",
-            image: "/images/drishti.png",
-            description: "End-to-end agentic system for insurance claims decisioning combining Claude and GPT-4 orchestration with LangGraph, RAG retrieval grounding decisions in policy data, tool use for lookups, human-in-the-loop checkpoints, safety guardrails, and evaluation harnesses — validated on 10K+ monthly claims."
+            github: "https://github.com/data-geek-astronomy",
+            description: "End-to-end agentic system for insurance claims decisioning combining Claude and GPT-4 orchestration with LangGraph, RAG retrieval grounding decisions in policy data, tool use, human-in-the-loop checkpoints, safety guardrails, and evaluation harnesses — validated on 10K+ monthly claims."
         },
         {
             id: 2,
             title: "Ads Bid Health Monitor",
             category: "Fraud Detection / ML",
             technologies: "Python, PySpark, Kafka, Airflow, Isolation Forest, DBSCAN, XGBoost, AWS Redshift",
-            image: "/images/votechain.png",
-            description: "Applied Isolation Forest and DBSCAN anomaly detection across 500M+ daily Uber auctions — surfacing a 34% eCPM variance driver and an 8x fraud signal invisible to rule-based systems. XGBoost model achieved AUC 0.94."
+            github: "https://github.com/data-geek-astronomy/ads-bid-health-monitor",
+            description: "Production-style anomaly detection system monitoring advertiser bidding behavior in real time. Applied Isolation Forest and DBSCAN across 500M+ daily auctions — surfacing a 34% eCPM variance driver and an 8x fraud signal invisible to rule-based systems. XGBoost model achieved AUC 0.94."
         },
         {
             id: 3,
-            title: "ASU Research Assistant",
-            category: "RAG / NLP",
-            technologies: "Python, PyTorch, RAG, Fine-Tuning, Pinecone, Evaluation Frameworks",
-            image: "/images/eie.png",
-            description: "Research assistant system for academic question answering with RAG pipelines over course knowledge base. Evaluation infrastructure raised verified reasoning accuracy by 72% across three iterated model releases."
+            title: "Amazon Ad Auction Simulator",
+            category: "Simulation / ML",
+            technologies: "Python, GSP Auction Engine, CTR Modelling, Floor Pricing, Revenue Optimization",
+            github: "https://github.com/data-geek-astronomy/ad-auction-simulator",
+            description: "Simulation of Amazon Sponsored Products' Generalized Second Price (GSP) auction engine. Explores how CTR model quality, competition depth, and floor pricing affect auction efficiency and revenue outcomes — built to study ad marketplace mechanics at scale."
+        },
+        {
+            id: 4,
+            title: "Multi-Modal Vision Pipeline",
+            category: "Computer Vision / Deep Learning",
+            technologies: "Python, DETR, DeepLabV3+, MoCo, DANN, PyTorch, Depth Estimation, Sensor Fusion",
+            github: "https://github.com/data-geek-astronomy/multi-modal-vision-pipeline",
+            description: "Comprehensive computer vision system combining 2D object detection (DETR, F1=0.89), semantic segmentation (DeepLabV3+, 19-class Cityscapes), depth estimation, and sensor fusion with self-supervised learning (MoCo) and domain adaptation (DANN)."
+        },
+        {
+            id: 5,
+            title: "Chem RAG",
+            category: "RAG / GenAI",
+            technologies: "Python, Google Gemini, RAG, Hybrid Search, Vector DB, LangChain",
+            github: "https://github.com/data-geek-astronomy/chem-rag",
+            description: "GenAI application extracting chemical properties (boiling points, flash points, flammability limits) from technical literature using RAG with Google Gemini and hybrid search. Processes millions of pages of SDS sheets, handbooks, and technical documents for on-demand structured property extraction."
+        },
+        {
+            id: 6,
+            title: "Human Emotion Recognition",
+            category: "NLP / Audio / Deep Learning",
+            technologies: "Python, Deep Learning, NLP, Audio Processing, TensorFlow, Keras",
+            github: "https://github.com/data-geek-astronomy/Human-Emotion-Recognition-from-Text-and-Voice-Data",
+            description: "Cutting-edge system recognizing human emotions from both text and voice data using deep learning, NLP, and audio processing — achieving 87% accuracy. Applications span human-computer interaction, mental health monitoring, and sentiment-aware interfaces."
+        },
+        {
+            id: 7,
+            title: "Breast Cancer Classification",
+            category: "Medical AI / Deep Learning",
+            technologies: "Python, TensorFlow, Keras, Transfer Learning, Histopathological Imaging",
+            github: "https://github.com/data-geek-astronomy/Breast-Cancer-Classification",
+            description: "Deep learning model for classifying benign and malignant breast tissue from histopathological images using transfer learning with TensorFlow and Keras — built for high-accuracy medical image classification with clinical applicability."
+        },
+        {
+            id: 8,
+            title: "Twitter Sentiment Analysis",
+            category: "NLP / Social Analytics",
+            technologies: "Python, NLP, Twitter API, Sentiment Analysis, TextBlob, VADER",
+            github: "https://github.com/data-geek-astronomy/twitter-sentimental-analysis",
+            description: "Real-time sentiment analysis engine that analyzes tweets about any event or topic to measure public sentiment polarity — positive, negative, or neutral. Built to track sentiment trends around breaking news, product launches, and social movements."
+        },
+        {
+            id: 9,
+            title: "Netflix Originals EDA",
+            category: "Data Analysis / EDA",
+            technologies: "Python, Pandas, Matplotlib, Seaborn, Jupyter, NumPy",
+            github: "https://github.com/data-geek-astronomy/netflix_eda",
+            description: "Exploratory data analysis on Netflix Originals dataset uncovering insights on genres, runtimes, premiere dates, IMDb scores, and language distribution — identifying content strategy patterns and viewership signals across the Netflix library."
+        },
+        {
+            id: 10,
+            title: "Airbnb EDA",
+            category: "Data Analysis / EDA",
+            technologies: "Python, Pandas, NumPy, Matplotlib, Seaborn, Missingno, Jupyter",
+            github: "https://github.com/data-geek-astronomy/airbnb_eda",
+            description: "In-depth EDA on Airbnb listing data identifying pricing trends, location-based patterns, availability insights, and host behavior — using advanced visualizations to surface actionable insights for hosts and travelers."
+        },
+        {
+            id: 11,
+            title: "Diabetes Prediction",
+            category: "Healthcare ML",
+            technologies: "Python, Scikit-learn, Pandas, Logistic Regression, Random Forest, Jupyter",
+            github: "https://github.com/data-geek-astronomy/Diabetes-prediction",
+            description: "ML classification model predicting diabetes onset based on patient health metrics. Trained on the Pima Indians Diabetes dataset using logistic regression and random forest — with feature importance analysis and model evaluation for clinical decision support."
+        },
+        {
+            id: 12,
+            title: "Iris Flower Classification",
+            category: "ML / Classification",
+            technologies: "Python, Scikit-learn, Pandas, SVM, KNN, Decision Tree, Jupyter",
+            github: "https://github.com/data-geek-astronomy/Iris-Flower-Classification",
+            description: "Classic multi-class flower classification using the Iris dataset — comparing SVM, KNN, and Decision Tree classifiers with comprehensive evaluation metrics. A benchmark exploration of supervised learning fundamentals and model selection."
         }
     ],
     contact: {
-        email: "aravindkumar@example.com",
-        github: "https://github.com/aravindkumar-nalukurthi",
-        linkedin: "https://linkedin.com/in/aravindkumar-nalukurthi",
-        twitter: "https://x.com/aravindkumar_ai",
-        facebook: "https://www.facebook.com",
-        instagram: "https://www.instagram.com"
+        email: "aravind.kumar.nalukurthi@gmail.com",
+        phone: "480-931-1899",
+        github: "https://github.com/data-geek-astronomy",
+        linkedin: "https://www.linkedin.com/in/aravind-kumar-nalukurthi-45b2a41b2/",
     },
     skills: {
         develop: {

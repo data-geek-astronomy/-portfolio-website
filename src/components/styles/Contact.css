@@ -179,3 +179,26 @@
   }
   .contact-right { padding-top: 0; }
 }
+
+.contact-link-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+.contact-link-sub {
+  font-family: var(--fontMono);
+  font-size: 10px;
+  color: var(--textMuted);
+  letter-spacing: 0.3px;
+}
+.contact-phone {
+  display: block;
+  font-family: var(--fontMono);
+  font-size: 14px;
+  color: #c4b5fd;
+  text-decoration: none;
+  margin-bottom: 14px;
+  transition: opacity 0.2s;
+}
+.contact-phone:hover { opacity: 0.75; color: #c4b5fd; }

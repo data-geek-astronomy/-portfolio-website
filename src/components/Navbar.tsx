@@ -58,35 +58,11 @@ const Navbar = () => {
           <span className="navbar-title-dot" />
         </a>
 
-        <a
-          href="mailto:aravindkumar@example.com"
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          aravindkumar@example.com
-        </a>
-
         <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#experience" href="#experience">
-              <HoverLinks text="EXPERIENCE" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="PROJECTS" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
+          <li><a data-href="#about" href="#about"><HoverLinks text="ABOUT" /></a></li>
+          <li><a data-href="#experience" href="#experience"><HoverLinks text="EXPERIENCE" /></a></li>
+          <li><a data-href="#work" href="#work"><HoverLinks text="PROJECTS" /></a></li>
+          <li><a data-href="#contact" href="#contact"><HoverLinks text="CONTACT" /></a></li>
         </ul>
       </div>
 

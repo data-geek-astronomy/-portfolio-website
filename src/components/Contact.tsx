@@ -3,9 +3,9 @@ import { config } from "../config";
 
 const Contact = () => {
   const links = [
-    { label: "GitHub", href: config.contact.github, icon: "⌥" },
-    { label: "LinkedIn", href: config.contact.linkedin, icon: "in" },
-    { label: "Email", href: `mailto:${config.contact.email}`, icon: "@" },
+    { label: "GitHub", href: config.contact.github, icon: "⌥", sub: "data-geek-astronomy" },
+    { label: "LinkedIn", href: config.contact.linkedin, icon: "in", sub: "aravind-kumar-nalukurthi" },
+    { label: "Email", href: `mailto:${config.contact.email}`, icon: "@", sub: config.contact.email },
   ];
 
   return (
@@ -27,7 +27,10 @@ const Contact = () => {
                 className="contact-link"
               >
                 <span className="contact-link-icon">{l.icon}</span>
-                <span className="contact-link-label">{l.label}</span>
+                <div className="contact-link-text">
+                  <span className="contact-link-label">{l.label}</span>
+                  <span className="contact-link-sub">{l.sub}</span>
+                </div>
                 <span className="contact-link-arrow">→</span>
               </a>
             ))}
@@ -39,13 +42,20 @@ const Contact = () => {
             <div className="contact-card-header">
               <span className="contact-card-tag">// quick connect</span>
             </div>
+
             <a href={`mailto:${config.contact.email}`} className="contact-email">
               {config.contact.email}
             </a>
+
+            <a href={`tel:${config.social.phone}`} className="contact-phone">
+              📞 {config.social.phone}
+            </a>
+
             <div className="contact-card-location">
               <span className="contact-card-loc-icon">◎</span>
               <span>{config.social.location}</span>
             </div>
+
             <div className="contact-card-status">
               <span className="contact-status-dot" />
               <span>Open to full-time AI Engineering roles</span>

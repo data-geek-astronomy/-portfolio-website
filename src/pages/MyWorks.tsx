@@ -20,7 +20,7 @@ const MyWorks = () => {
           <div className="myworks-card" key={project.id} data-cursor="disable">
             <div className="myworks-card-number">0{index + 1}</div>
             <div className="myworks-card-image">
-              <img src={project.image} alt={project.title} />
+              <div className="myworks-card-placeholder">{project.category.split("/")[0].trim()}</div>
             </div>
             <div className="myworks-card-info">
               <h3>{project.title}</h3>
