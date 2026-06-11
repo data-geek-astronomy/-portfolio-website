@@ -139,7 +139,7 @@
   gap: 16px;
   flex-wrap: wrap;
 }
-.landing-btn {
+.landing-btn {cursor: pointer; font-family: inherit;
   padding: 12px 28px;
   border-radius: 6px;
   font-size: 14px;
@@ -457,4 +457,18 @@
     object-fit: contain;
     filter: drop-shadow(0 0 40px rgba(0,212,255,0.35));
   }
+}
+
+/* Ensure button elements look identical to anchor buttons */
+button.landing-btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+}
+button.landing-btn-ghost {
+  border: 1px solid var(--surfaceBorder);
+}
+button.landing-btn-ghost:hover {
+  border-color: var(--accentColor);
 }

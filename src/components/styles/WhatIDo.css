@@ -149,3 +149,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Dual identity banner */
+.whatido-dual-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.whatido-identity-card {
+  flex: 1;
+  min-width: 200px;
+  border-radius: 14px;
+  padding: 24px 20px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s;
+}
+.whatido-identity-card:hover { transform: translateY(-4px); }
+.whatido-ai {
+  background: rgba(0,212,255,0.05);
+  border-color: rgba(0,212,255,0.2);
+}
+.whatido-data {
+  background: rgba(124,58,237,0.05);
+  border-color: rgba(124,58,237,0.2);
+}
+.whatido-identity-icon { font-size: 28px; line-height: 1; }
+.whatido-identity-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e8e4f0;
+  letter-spacing: -0.3px;
+}
+.whatido-identity-desc {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--textMuted);
+  font-weight: 300;
+}
+.whatido-identity-plus {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--textMuted);
+  flex-shrink: 0;
+}

@@ -1,6 +1,7 @@
 .about-section {
   width: 100%;
-  padding: 120px 0;
+  /* Large top padding so education text clears the 3D character head */
+  padding: 220px 0 120px;
   position: relative;
   overflow: hidden;
 }
@@ -40,9 +41,53 @@
   font-size: 16px;
   line-height: 1.8;
   color: rgba(232,228,240,0.7);
-  margin: 0 0 40px;
+  margin: 0 0 32px;
   font-weight: 300;
 }
+
+/* Dual identity badges */
+.about-identity-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.about-id-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid;
+  flex: 1;
+  min-width: 160px;
+}
+.about-id-badge-ai {
+  background: rgba(0,212,255,0.06);
+  border-color: rgba(0,212,255,0.22);
+}
+.about-id-badge-data {
+  background: rgba(124,58,237,0.06);
+  border-color: rgba(124,58,237,0.22);
+}
+.about-id-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.about-id-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8e4f0;
+  margin-bottom: 2px;
+}
+.about-id-sub {
+  font-family: var(--fontMono);
+  font-size: 10px;
+  color: var(--textMuted);
+  letter-spacing: 0.3px;
+}
+
+/* Education */
 .about-edu {
   display: flex;
   flex-direction: column;
@@ -53,7 +98,7 @@
 .about-edu-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 .about-edu-degree {
   font-size: 14px;
@@ -73,7 +118,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: 54px;
+  padding-top: 120px;
 }
 .about-card {
   display: flex;
@@ -110,9 +155,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+  .about-section { padding: 80px 0 80px; }
+  .about-container { grid-template-columns: 1fr; gap: 48px; }
   .about-right { padding-top: 0; }
 }

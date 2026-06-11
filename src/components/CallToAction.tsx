@@ -1,4 +1,5 @@
 import "./styles/CallToAction.css";
+import { config } from "../config";
 
 const CallToAction = () => {
   return (
@@ -13,13 +14,19 @@ const CallToAction = () => {
           <span className="cta-heading-accent">the next system?</span>
         </h2>
         <p className="cta-sub">
-          I'm looking for full-time AI Engineering roles where I can ship production systems
-          with measurable impact. LLM orchestration, agentic pipelines, RAG, and ML at scale.
+          Looking for full-time AI Engineering and Data Engineering roles where I can ship
+          production systems with measurable impact. LLM orchestration, agentic pipelines,
+          RAG, large-scale data engineering, and ML at scale.
         </p>
         <div className="cta-actions">
-          <a href="#contact" className="cta-btn-primary">Get in touch</a>
           <a
-            href="https://linkedin.com/in/aravindkumar-nalukurthi"
+            href={`mailto:${config.contact.email}`}
+            className="cta-btn-primary"
+          >
+            Get in touch
+          </a>
+          <a
+            href={config.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="cta-btn-ghost"

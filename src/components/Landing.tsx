@@ -8,7 +8,6 @@ const Landing = ({ children }: PropsWithChildren) => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Staggered entrance animations via CSS classes
     const els = [titleRef.current, subtitleRef.current, statsRef.current];
     els.forEach((el, i) => {
       if (!el) return;
@@ -23,8 +22,13 @@ const Landing = ({ children }: PropsWithChildren) => {
     });
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const el = document.querySelector(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   const stats = [
-    { value: "3+", label: "Years in AI" },
+    { value: "3+", label: "Years in AI & Data" },
     { value: "10K+", label: "Claims / month" },
     { value: "50M+", label: "Daily auctions" },
     { value: "72%", label: "Accuracy gain" },
@@ -32,20 +36,16 @@ const Landing = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="landing-section" id="landingDiv">
-      {/* Ambient orbs */}
       <div className="landing-orb landing-orb-1" />
       <div className="landing-orb landing-orb-2" />
       <div className="landing-orb landing-orb-3" />
-
-      {/* Grid overlay */}
       <div className="landing-grid" />
 
       <div className="landing-container">
-        {/* Left: Identity */}
         <div className="landing-identity">
           <div className="landing-eyebrow">
             <span className="landing-eyebrow-dot" />
-            <span>AI Engineer · LLM Systems · Production ML</span>
+            <span>AI Engineer &amp; Data Engineer · LLM Systems · Production ML</span>
           </div>
 
           <h1 ref={titleRef} className="landing-name">
@@ -60,12 +60,21 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
 
           <div className="landing-actions">
-            <a href="#work" className="landing-btn landing-btn-primary">View Projects</a>
-            <a href="#contact" className="landing-btn landing-btn-ghost">Contact Me</a>
+            <button
+              className="landing-btn landing-btn-primary"
+              onClick={() => scrollToSection("#work")}
+            >
+              View Projects
+            </button>
+            <button
+              className="landing-btn landing-btn-ghost"
+              onClick={() => scrollToSection("#contact")}
+            >
+              Contact Me
+            </button>
           </div>
         </div>
 
-        {/* Right: Stats panel */}
         <div ref={statsRef} className="landing-stats">
           <div className="landing-stats-label">Impact Metrics</div>
           <div className="landing-stats-grid">
@@ -77,22 +86,19 @@ const Landing = ({ children }: PropsWithChildren) => {
             ))}
           </div>
           <div className="landing-stack-badges">
-            {["Claude API", "LangChain", "RAG", "PyTorch", "PySpark"].map(t => (
+            {["Claude API", "LangChain", "RAG", "PySpark", "Kafka"].map(t => (
               <span key={t} className="landing-badge">{t}</span>
             ))}
           </div>
         </div>
 
-        {/* Mobile photo fallback */}
         <div className="mobile-photo">
           <img src="/images/mypicnbg.png" alt={config.developer.fullName} />
         </div>
       </div>
 
-      {/* 3D character injected here */}
       {children}
 
-      {/* Scroll indicator */}
       <div className="landing-scroll">
         <div className="landing-scroll-line" />
         <span>scroll</span>
