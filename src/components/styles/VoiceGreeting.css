@@ -1,0 +1,103 @@
+/* Floating tap-to-play prompt (shown only if autoplay is blocked) */
+.voice-prompt {
+  position: fixed;
+  bottom: 100px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: rgba(13, 17, 23, 0.92);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 100px;
+  color: #e8e4f0;
+  font-family: var(--fontMono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.18);
+  animation: voice-prompt-in 0.5s ease, voice-prompt-pulse 2s ease-in-out infinite 0.5s;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.voice-prompt:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 212, 255, 0.6);
+}
+.voice-prompt-icon { font-size: 16px; }
+
+@keyframes voice-prompt-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes voice-prompt-pulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(0, 212, 255, 0.18); }
+  50% { box-shadow: 0 8px 40px rgba(0, 212, 255, 0.4); }
+}
+
+/* Persistent small audio control button (bottom-right) */
+.voice-control {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9998;
+}
+.voice-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid var(--surfaceBorder);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.voice-btn:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+}
+
+/* Equalizer bars */
+.voice-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 18px;
+}
+.voice-bar {
+  width: 3px;
+  height: 6px;
+  background: var(--accentColor);
+  border-radius: 2px;
+  transition: height 0.2s;
+}
+/* Animate bars only while speaking */
+.voice-speaking .voice-bar {
+  animation: voice-eq 0.8s ease-in-out infinite;
+}
+.voice-speaking .voice-bar:nth-child(1) { animation-delay: 0s; }
+.voice-speaking .voice-bar:nth-child(2) { animation-delay: 0.15s; }
+.voice-speaking .voice-bar:nth-child(3) { animation-delay: 0.3s; }
+.voice-speaking .voice-bar:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes voice-eq {
+  0%, 100% { height: 5px; }
+  50% { height: 16px; }
+}
+
+/* When idle, show a static speaker-like shape */
+.voice-btn:not(.voice-speaking) .voice-bar:nth-child(1) { height: 6px; }
+.voice-btn:not(.voice-speaking) .voice-bar:nth-child(2) { height: 12px; }
+.voice-btn:not(.voice-speaking) .voice-bar:nth-child(3) { height: 12px; }
+.voice-btn:not(.voice-speaking) .voice-bar:nth-child(4) { height: 6px; }
+
+@media screen and (max-width: 768px) {
+  .voice-control { bottom: 24px; right: 24px; }
+  .voice-prompt { bottom: 84px; right: 24px; font-size: 11px; padding: 10px 14px; }
+}

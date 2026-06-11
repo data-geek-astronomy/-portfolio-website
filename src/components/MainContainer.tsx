@@ -12,6 +12,7 @@ import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
+import VoiceGreeting from "./VoiceGreeting";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
@@ -37,6 +38,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
+      <VoiceGreeting />
       {isDesktopView && !isMobile && children}
       <div className="container-main">
         <Landing />
