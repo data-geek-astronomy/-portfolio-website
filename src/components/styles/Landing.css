@@ -138,8 +138,14 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
 }
 .landing-btn {cursor: pointer; font-family: inherit;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
   padding: 12px 28px;
   border-radius: 6px;
   font-size: 14px;

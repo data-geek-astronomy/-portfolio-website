@@ -7,6 +7,7 @@ import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
+export const getLenis = () => lenis;
 
 const Navbar = () => {
   useEffect(() => {
