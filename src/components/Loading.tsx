@@ -9,6 +9,17 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
+  // Auto-complete loading after 8 seconds (fallback for stuck 3D model)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!isLoaded) {
+        setLoaded(true);
+        setTimeout(() => setIsLoaded(true), 1000);
+      }
+    }, 8000);
+    return () => clearTimeout(timeout);
+  }, [isLoaded]);
+
   if (percent >= 100) {
     setTimeout(() => {
       setLoaded(true);
@@ -48,11 +59,11 @@ const Loading = ({ percent }: { percent: number }) => {
         <div className="loading-marquee">
           <Marquee speed={40}>
             <span>&nbsp; AI Engineer &nbsp;·&nbsp;</span>
+            <span>&nbsp; Data Engineer &nbsp;·&nbsp;</span>
             <span>&nbsp; LLM Orchestration &nbsp;·&nbsp;</span>
             <span>&nbsp; RAG Pipelines &nbsp;·&nbsp;</span>
             <span>&nbsp; Production ML &nbsp;·&nbsp;</span>
             <span>&nbsp; Agentic Systems &nbsp;·&nbsp;</span>
-            <span>&nbsp; Evaluation Frameworks &nbsp;·&nbsp;</span>
           </Marquee>
         </div>
         <div
@@ -67,7 +78,7 @@ const Loading = ({ percent }: { percent: number }) => {
                   Initializing <span>{percent}%</span>
                 </div>
               </div>
-              <div className="loading-box" />
+              <div className="loading-box" style={{ width: `${Math.min(percent, 100)}%` }} />
             </div>
             <div className="loading-content2">
               <span>Enter</span>
