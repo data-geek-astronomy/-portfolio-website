@@ -74,6 +74,11 @@ const Scene = () => {
             handleResize(renderer, camera, canvasDiv, character)
           );
         }
+      }).catch((err) => {
+        // If the 3D model fails to load (e.g. asset path issue), don't hang —
+        // force the loading screen to complete so the rest of the site shows.
+        console.warn("Character model failed to load, revealing page anyway:", err);
+        progress.clear();
       });
 
       let mouse = { x: 0, y: 0 },
