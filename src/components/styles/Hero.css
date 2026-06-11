@@ -92,15 +92,28 @@
 
 @media screen and (max-width: 768px) {
   .hero-section {
-    padding: 60px 0 40px;
+    padding: 50px 0 40px;
   }
   .hero-identity {
-    gap: 12px;
+    flex-direction: column;
+    gap: 8px;
   }
   .hero-title-word {
-    font-size: 28px;
+    font-size: 32px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .hero-spark {
+    width: 40px;
+    height: 40px;
   }
   .spark-icon {
-    font-size: 32px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero-title-word {
+    font-size: 26px;
   }
 }

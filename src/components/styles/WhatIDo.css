@@ -197,3 +197,17 @@
   color: var(--textMuted);
   flex-shrink: 0;
 }
+
+/* Mobile: stack dual identity vertically */
+@media screen and (max-width: 600px) {
+  .whatido-dual-identity {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .whatido-identity-plus {
+    transform: rotate(90deg);
+  }
+  .whatido-identity-card {
+    width: 100%;
+  }
+}

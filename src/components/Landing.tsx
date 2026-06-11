@@ -1,6 +1,5 @@
 import { PropsWithChildren, useEffect, useRef } from "react";
 import "./styles/Landing.css";
-import { config } from "../config";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -90,10 +89,6 @@ const Landing = ({ children }: PropsWithChildren) => {
               <span key={t} className="landing-badge">{t}</span>
             ))}
           </div>
-        </div>
-
-        <div className="mobile-photo">
-          <img src={`${import.meta.env.BASE_URL}images/mypicnbg.png`} alt={config.developer.fullName} />
         </div>
       </div>
 

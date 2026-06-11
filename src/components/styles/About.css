@@ -129,7 +129,12 @@
 }
 
 @media screen and (max-width: 900px) {
-  .about-section { padding: 120px 0 80px; }
+  .about-section { padding: 100px 0 80px; }
   .about-container { grid-template-columns: 1fr; gap: 48px; }
   .about-right { padding-top: 0; }
+}
+@media screen and (max-width: 600px) {
+  .about-section { padding: 60px 0 60px; }
+  .about-identity-badges { flex-direction: column; }
+  .about-id-badge { min-width: 100%; }
 }

@@ -185,3 +185,12 @@
     gap: 0;
   }
 }
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .career-section { padding: 60px 0; }
+  .career-heading { font-size: 36px; margin-bottom: 40px; }
+  .career-item { gap: 16px; }
+  .career-item-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .career-item-content { padding-bottom: 32px; }
+}

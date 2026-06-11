@@ -94,3 +94,12 @@
   color: var(--accentColor);
   transform: translateY(-2px);
 }
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .cta-section { padding: 60px 0; }
+  .cta-heading { font-size: 32px; }
+  .cta-sub { font-size: 14px; }
+  .cta-actions { flex-direction: column; width: 100%; }
+  .cta-btn-primary, .cta-btn-ghost { width: 100%; text-align: center; box-sizing: border-box; }
+}

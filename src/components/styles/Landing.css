@@ -442,21 +442,6 @@
     width: 100%;
     box-sizing: border-box;
   }
-  .mobile-photo {
-    display: block;
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-  }
-  .mobile-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(0,212,255,0.35));
-  }
 }
 
 /* Ensure button elements look identical to anchor buttons */
