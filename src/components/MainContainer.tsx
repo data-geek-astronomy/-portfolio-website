@@ -3,6 +3,8 @@ import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
+import Education from "./Education";
+import Hero from "./Hero";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
@@ -38,7 +40,9 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       {isDesktopView && !isMobile && children}
       <div className="container-main">
         <Landing />
+        <Hero />
         <About />
+        <Education />
         <WhatIDo />
         <Career />
         <Work />

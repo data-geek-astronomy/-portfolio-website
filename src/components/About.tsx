@@ -37,18 +37,6 @@ const About = () => {
               </div>
             </div>
           </div>
-
-          {/* Education — pushed down with extra spacing so it clears the 3D character */}
-          <div className="about-edu">
-            <div className="about-edu-item">
-              <span className="about-edu-degree">M.S. Data Science, Analytics and Engineering</span>
-              <span className="about-edu-school">Arizona State University · 2024 to 2026</span>
-            </div>
-            <div className="about-edu-item">
-              <span className="about-edu-degree">B.Tech Electronics and Communication Engineering</span>
-              <span className="about-edu-school">NIT Calicut · 2018 to 2022</span>
-            </div>
-          </div>
         </div>
 
         <div className="about-right">

@@ -1,0 +1,106 @@
+.hero-section {
+  width: 100%;
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,212,255,0.03) 0%, transparent 100%);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,212,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-container {
+  width: var(--cWidth);
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-title-word {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ffffff 0%, #a0c4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hero-title-word:last-child {
+  background: linear-gradient(90deg, var(--accentColor) 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-spark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.spark-icon {
+  font-size: 48px;
+  display: inline-block;
+  animation: spark-flash 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
+}
+
+@keyframes spark-flash {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 1));
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+  }
+}
+
+.spark-icon::before {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0 40px;
+  }
+  .hero-identity {
+    gap: 12px;
+  }
+  .hero-title-word {
+    font-size: 28px;
+  }
+  .spark-icon {
+    font-size: 32px;
+  }
+}
