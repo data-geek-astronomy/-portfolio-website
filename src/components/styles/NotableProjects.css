@@ -62,7 +62,6 @@
   overflow-y: visible;
   padding: 8px 0 24px;
   padding-left: calc((100% - min(var(--cWidth), 1280px)) / 2);
-  padding-right: calc((100% - min(var(--cWidth), 1280px)) / 2);
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
@@ -74,7 +73,10 @@
   display: flex;
   gap: 20px;
   width: max-content;
-  padding-right: 40px;
+}
+.notable-end-spacer {
+  flex: 0 0 calc((100% - min(var(--cWidth), 1280px)) / 2 + 40px);
+  width: calc((100% - min(var(--cWidth), 1280px)) / 2 + 40px);
 }
 
 .notable-card {

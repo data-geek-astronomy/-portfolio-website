@@ -195,6 +195,7 @@ const NotableProjects = () => {
               </div>
             );
           })}
+          <div className="notable-end-spacer" aria-hidden="true" />
         </div>
       </div>
 
