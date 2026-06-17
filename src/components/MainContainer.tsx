@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
+import NotableProjects from "./NotableProjects";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import VoiceGreeting from "./VoiceGreeting";
@@ -48,6 +49,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <WhatIDo />
         <Career />
         <Work />
+        <NotableProjects />
         <TechStackNew />
         <CallToAction />
         <Contact />

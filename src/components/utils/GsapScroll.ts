@@ -119,6 +119,14 @@ export function setAllTimeline() {
     },
   }).fromTo(".work-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: "power2.out" });
 
+  // Notable projects cards reveal
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".notable-section",
+      start: "top 70%",
+    },
+  }).fromTo(".notable-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: "power2.out" });
+
   // WhatIDo cards
   gsap.timeline({
     scrollTrigger: {
