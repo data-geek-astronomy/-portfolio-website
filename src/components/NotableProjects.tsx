@@ -105,14 +105,17 @@ const NotableProjects = () => {
 
     // Convert vertical wheel/trackpad scroll into horizontal movement
     const onWheel = (e: WheelEvent) => {
+      const scrollable = el.scrollWidth > el.clientWidth;
+      if (!scrollable) return;
+      // Use whichever delta is larger (trackpads send deltaX on horizontal swipe)
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
       const atStart = el.scrollLeft <= 0;
       const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
-      const scrollingDown = e.deltaY > 0;
-      // Only hijack the wheel while there is room to scroll horizontally,
-      // otherwise let the page scroll normally past the section.
-      if ((scrollingDown && !atEnd) || (!scrollingDown && !atStart)) {
+      const scrollingForward = delta > 0;
+      if ((scrollingForward && !atEnd) || (!scrollingForward && !atStart)) {
         e.preventDefault();
-        el.scrollLeft += e.deltaY;
+        e.stopPropagation();
+        el.scrollLeft += delta;
       }
     };
     el.addEventListener("wheel", onWheel, { passive: false });
@@ -144,7 +147,7 @@ const NotableProjects = () => {
         </div>
       </div>
 
-      <div className="notable-scroll-track" ref={scrollRef}>
+      <div className="notable-scroll-track" ref={scrollRef} data-lenis-prevent>
         <div className="notable-cards-row">
           {notableProjects.map((project) => {
             const c = colorMap[project.color];
