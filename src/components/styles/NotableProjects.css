@@ -179,13 +179,20 @@
   font-weight: 500;
 }
 
+.notable-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
 .notable-card-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.04);
+  flex: 1;
 }
 .notable-tech-tag {
   font-family: var(--fontMono);
@@ -197,6 +204,28 @@
   color: rgba(232,228,240,0.55);
   letter-spacing: 0.3px;
 }
+.notable-github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #e8e4f0;
+  text-decoration: none;
+  font-family: var(--fontMono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.notable-github-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+.notable-github-btn svg { flex-shrink: 0; }
 
 .notable-scroll-hint {
   width: var(--cWidth);

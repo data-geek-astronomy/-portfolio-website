@@ -9,6 +9,7 @@ const notableProjects = [
     category: "Anomaly Detection / MLOps",
     technologies: "Isolation Forest, LOF, One-Class SVM, SHAP, Random Forest, Gradient Boosting",
     github: "https://github.com/data-geek-astronomy/cisco-network-anomaly-detection",
+    demo: "https://huggingface.co/spaces/Darkweb007/cisco-network-anomaly-detection",
     description: "Enterprise-grade ML system detecting anomalies in network logs in real time. Processes 20K+ logs per second with sub-50ms inference, combining statistical baselines, ML ensembles, and SHAP explainability with automated retraining and drift detection.",
     metrics: ["20K+ logs/sec", "<50ms latency", "5-model ensemble"],
     color: "cyan",
@@ -33,6 +34,7 @@ const notableProjects = [
     category: "Customer Analytics / ML",
     technologies: "Clustering, Segmentation, Cash Flow Forecasting, Recommendation Systems",
     github: "https://github.com/data-geek-astronomy/financial-insights-engine",
+    demo: "https://huggingface.co/spaces/Darkweb007/financial-insights-engine",
     description: "Customer analytics platform combining ML segmentation, financial health scoring, and personalized recommendations. Identifies four distinct customer groups, forecasts 6-month revenue, and surfaces at-risk accounts for proactive retention.",
     metrics: ["4 segments", "6-mo forecast", "Health scoring"],
     color: "violet",
@@ -45,6 +47,7 @@ const notableProjects = [
     category: "Forecasting / Optimization",
     technologies: "Facebook Prophet, Dynamic Pricing, Revenue Optimization, Streamlit",
     github: "https://github.com/data-geek-astronomy/netflix-ads-portfolio",
+    demo: "https://huggingface.co/spaces/Darkweb007/netflix-ads-portfolio",
     description: "Ad inventory management and dynamic pricing platform for Netflix's ad-supported tier. Forecasts inventory 90 days ahead with Prophet, optimizes CPM pricing on demand signals, and maximizes revenue through intelligent pricing strategies.",
     metrics: ["90-day forecast", "Dynamic CPM", "Revenue optimization"],
     color: "amber",
@@ -57,6 +60,7 @@ const notableProjects = [
     category: "Recommendation / Ranking",
     technologies: "XGBoost, Learning to Rank, Feature Engineering, Streamlit",
     github: "https://github.com/data-geek-astronomy/airbnb-listing-recommender",
+    demo: "https://huggingface.co/spaces/Darkweb007/airbnb-listing-recommender",
     description: "ML-powered ranking system for personalized Airbnb recommendations using gradient-boosted ranking models. Learns guest preferences from booking history and personalizes search results in real time, lifting booking conversion from 15% to 18%.",
     metrics: ["18% conversion", "XGBoost ranking", "Real-time"],
     color: "cyan",
@@ -69,6 +73,7 @@ const notableProjects = [
     category: "Deep Learning / Retrieval",
     technologies: "Two-Tower Dual Encoder, InfoNCE, FAISS, PyTorch, ANN Indexing",
     github: "https://github.com/data-geek-astronomy/pinterest-two-tower",
+    demo: "https://huggingface.co/spaces/Darkweb007/pinterest-two-tower",
     description: "Production-grade two-tower dual-encoder retrieval system personalizing Pinterest-style feeds. Trains user and item towers with InfoNCE and in-batch negatives, serving recommendations through a FAISS ANN index 10 to 100x faster than exact search at 95%+ recall.",
     metrics: ["10-100x faster", "95%+ recall", "FAISS ANN"],
     color: "violet",
@@ -170,7 +175,13 @@ const NotableProjects = () => {
                     <span className="notable-card-category" style={{ color: c.text, background: c.tag, borderColor: c.border }}>
                       {project.category}
                     </span>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="notable-card-arrow" title="View on GitHub">↗</a>
+                    <a
+                      href={(project as any).demo || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="notable-card-arrow"
+                      title={(project as any).demo ? "Open live demo" : "View on GitHub"}
+                    >↗</a>
                   </div>
 
                   <h3 className="notable-card-title">{project.title}</h3>
@@ -186,10 +197,24 @@ const NotableProjects = () => {
                     ))}
                   </div>
 
-                  <div className="notable-card-tech">
-                    {project.technologies.split(", ").slice(0, 4).map(t => (
-                      <span key={t} className="notable-tech-tag">{t.trim()}</span>
-                    ))}
+                  <div className="notable-card-bottom">
+                    <div className="notable-card-tech">
+                      {project.technologies.split(", ").slice(0, 3).map(t => (
+                        <span key={t} className="notable-tech-tag">{t.trim()}</span>
+                      ))}
+                    </div>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="notable-github-btn"
+                      title="View source on GitHub"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
                   </div>
                 </div>
               </div>
