@@ -102,10 +102,26 @@ const NotableProjects = () => {
     el.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mouseup", onMouseUp);
     el.addEventListener("mousemove", onMouseMove);
+
+    // Convert vertical wheel/trackpad scroll into horizontal movement
+    const onWheel = (e: WheelEvent) => {
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+      const scrollingDown = e.deltaY > 0;
+      // Only hijack the wheel while there is room to scroll horizontally,
+      // otherwise let the page scroll normally past the section.
+      if ((scrollingDown && !atEnd) || (!scrollingDown && !atStart)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+
     return () => {
       el.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
       el.removeEventListener("mousemove", onMouseMove);
+      el.removeEventListener("wheel", onWheel);
     };
   }, []);
 

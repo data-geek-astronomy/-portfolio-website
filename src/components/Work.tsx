@@ -44,10 +44,24 @@ const Work = () => {
     el.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mouseup", onMouseUp);
     el.addEventListener("mousemove", onMouseMove);
+
+    // Convert vertical wheel/trackpad scroll into horizontal movement
+    const onWheel = (e: WheelEvent) => {
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+      const scrollingDown = e.deltaY > 0;
+      if ((scrollingDown && !atEnd) || (!scrollingDown && !atStart)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+
     return () => {
       el.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
       el.removeEventListener("mousemove", onMouseMove);
+      el.removeEventListener("wheel", onWheel);
     };
   }, []);
 
