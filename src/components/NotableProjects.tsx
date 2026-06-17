@@ -12,6 +12,7 @@ const notableProjects = [
     description: "Enterprise-grade ML system detecting anomalies in network logs in real time. Processes 20K+ logs per second with sub-50ms inference, combining statistical baselines, ML ensembles, and SHAP explainability with automated retraining and drift detection.",
     metrics: ["20K+ logs/sec", "<50ms latency", "5-model ensemble"],
     color: "cyan",
+    logo: "images/projects/cisco.jpg",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const notableProjects = [
     description: "Models ride-sharing marketplace dynamics and isolates the true causal impact of surge pricing on demand, supply, and wait times. Implements three causal methods to remove confounding from weather, events, and day-of-week effects.",
     metrics: ["3 causal methods", "Demand elasticity", "Supply response"],
     color: "amber",
+    logo: "images/projects/uber.jpg",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const notableProjects = [
     description: "Customer analytics platform combining ML segmentation, financial health scoring, and personalized recommendations. Identifies four distinct customer groups, forecasts 6-month revenue, and surfaces at-risk accounts for proactive retention.",
     metrics: ["4 segments", "6-mo forecast", "Health scoring"],
     color: "violet",
+    logo: "images/projects/stripe.jpg",
   },
   {
     id: 4,
@@ -57,6 +60,7 @@ const notableProjects = [
     description: "ML-powered ranking system for personalized Airbnb recommendations using gradient-boosted ranking models. Learns guest preferences from booking history and personalizes search results in real time, lifting booking conversion from 15% to 18%.",
     metrics: ["18% conversion", "XGBoost ranking", "Real-time"],
     color: "cyan",
+    logo: "images/projects/airbnb.jpg",
   },
   {
     id: 6,
@@ -68,6 +72,7 @@ const notableProjects = [
     description: "Production-grade two-tower dual-encoder retrieval system personalizing Pinterest-style feeds. Trains user and item towers with InfoNCE and in-batch negatives, serving recommendations through a FAISS ANN index 10 to 100x faster than exact search at 95%+ recall.",
     metrics: ["10-100x faster", "95%+ recall", "FAISS ANN"],
     color: "violet",
+    logo: "images/projects/pinterest.jpg",
   },
 ];
 
