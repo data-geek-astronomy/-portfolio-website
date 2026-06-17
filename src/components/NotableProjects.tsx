@@ -45,6 +45,7 @@ const notableProjects = [
     description: "Ad inventory management and dynamic pricing platform for Netflix's ad-supported tier. Forecasts inventory 90 days ahead with Prophet, optimizes CPM pricing on demand signals, and maximizes revenue through intelligent pricing strategies.",
     metrics: ["90-day forecast", "Dynamic CPM", "Revenue optimization"],
     color: "amber",
+    logo: "images/projects/netflix.jpg",
   },
   {
     id: 5,
@@ -152,7 +153,13 @@ const NotableProjects = () => {
           {notableProjects.map((project) => {
             const c = colorMap[project.color];
             return (
-              <div key={project.id} className="notable-card" style={{ "--card-glow": c.glow } as React.CSSProperties}>
+              <div key={project.id} className={`notable-card ${project.logo ? "has-logo" : ""}`} style={{ "--card-glow": c.glow } as React.CSSProperties}>
+                {project.logo && (
+                  <div className="notable-card-logo">
+                    <img src={`${import.meta.env.BASE_URL}${project.logo}`} alt={project.title} />
+                    <span className="notable-card-logo-hint">hover to view details</span>
+                  </div>
+                )}
                 <div className="notable-card-inner">
                   <div className="notable-card-top">
                     <span className="notable-card-category" style={{ color: c.text, background: c.tag, borderColor: c.border }}>
